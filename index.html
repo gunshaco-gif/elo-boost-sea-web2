@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELO BOOST SEA - บริการปั๊มแรงค์ LOL / TFT / Wild Rift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 👑 โค้ดปรับแต่งพื้นหลังภาพ Viego เฉพาะส่วนบนถึงคำนวณแรงค์ -->
+    <style>
+        .viego-bg-wrapper {
+            background-image: linear-gradient(to bottom, rgba(10, 15, 26, 0.75), rgba(10, 15, 26, 0.98)), url('1124214.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 100%;
+        }
+        .hero-section, .pricing-container-section {
+            background: transparent !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- แถบเมนูด้านบน (Navbar Fixed) -->
+    <header class="navbar">
+        <div class="nav-left">
+            <img src="logo.png" alt="Logo" class="nav-logo">
+            <span class="logo-text">ELO BOOST SEA</span>
+        </div>
+        
+        <nav class="nav-center">
+            <ul>
+                <li><a href="#pricing-section" data-key="navPrice">ราคา</a></li>
+                <li><a href="#steps" data-key="navSteps">ขั้นตอน</a></li>
+                <li><a href="#whyus" data-key="navWhy">ทำไมต้องเรา</a></li>
+                <li><a href="#contact" data-key="navContact">ติดต่อ</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-right">
+            <a href="#contact" class="btn-nav-order" data-key="navOrderBtn">สั่งซื้อทันที</a>
+            <div class="lang-switcher">
+                <button onclick="switchLanguage('th')" id="btn-th" class="lang-btn active">TH</button>
+                <button onclick="switchLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 🟢 เริ่มโซนพื้นหลัง Viego -->
+    <div class="viego-bg-wrapper">
+
+        <!-- ส่วนที่ 1: หน้าแรกหลัก (Hero Section) -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="season-badge">
+                        <span>⚔️ SEASON 2026 • SEA SERVER</span>
+                    </div>
+                    <h1 data-key="heroTitle">
+                        ปั๊มแรงค์ <span class="text-cyan">League of Legends</span> โดยผู้เล่น <span class="text-gold">Challenger</span>
+                    </h1>
+                    <p class="hero-subtext" data-key="heroSub">
+                        บริการดันแรงค์ทุกระดับ ทั้ง LoL PC, TFT และ Wild Rift ปลอดภัย 100% ส่งงานตรงเวลา รับประกันผลงานทุกออเดอร์
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#pricing-section" class="btn-gradient" data-key="btnPriceText">ดูราคาทั้งหมด</a>
+                        <a href="#contact" class="btn-outline" data-key="btnAdminText">ติดต่อแอดมิน</a>
+                    </div>
+                </div>
+
+                <div class="hero-image-area">
+                    <div class="radial-glow"></div>
+                    <img src="logo.png" alt="ELO BOOST SEA" class="hero-crest">
+                </div>
+            </div>
+        </section>
+
+        <!-- ส่วนที่ 2: ตารางราคาและการคำนวณราคา (Pricing & Calculator) -->
+        <section id="pricing-section" class="pricing-container-section">
+            <h2 class="section-title" data-key="pricingMainTitle">ตารางราคา <span class="text-cyan">ปั๊มแรงค์</span></h2>
+            
+            <!-- 🎛️ แท็บสลับหมวดหมู่เกม (Game Tabs) -->
+            <div class="game-tabs-nav">
+                <button class="game-tab-btn active" onclick="switchGameTab('lol-pc')">
+                    <i class="fa-solid fa-desktop"></i> LoL PC
+                </button>
+                <button class="game-tab-btn" onclick="switchGameTab('tft')">
+                    <i class="fa-solid fa-chess-board"></i> Teamfight Tactics (TFT)
+                </button>
+                <button class="game-tab-btn" onclick="switchGameTab('lol-wr')">
+                    <i class="fa-solid fa-mobile-screen-button"></i> LoL: Wild Rift
+                </button>
+            </div>
+
+            <!-- ==========================================
+                 หมวดหมู่ที่ 1: LoL PC Content
+                 ========================================== -->
+            <div id="content-lol-pc" class="game-tab-content active">
+                <div class="rank-price-grid">
+                    <div class="rank-card card-iron">
+                        <img src="120px-Season_2022_-_Iron.png" alt="Iron" class="rank-img">
+                        <h3 class="rank-name-iron">Iron</h3>
+                        <p class="price-val">฿100</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <div class="rank-card card-bronze">
+                        <img src="7ce03682-2356-4f67-9c69-5ff49ad4ee72.webp" alt="Bronze" class="rank-img">
+                        <h3 class="rank-name-bronze">Bronze</h3>
+                        <p class="price-val">฿100</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <div class="rank-card card-silver">
+                        <img src="093c5360-2961-41d2-860e-8cac01f070ce.webp" alt="Silver" class="rank-img">
+                        <h3 class="rank-name-silver">Silver</h3>
+                        <p class="price-val">฿150</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <div class="rank-card card-gold">
+                        <img src="Qjf7CRIIqXLn7pWAwPRmIeP8XM.webp" alt="Gold" class="rank-img">
+                        <h3 class="rank-name-gold">Gold</h3>
+                        <p class="price-val">฿250</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <div class="rank-card card-platinum">
+                        <img src="0c1c4015-4935-4404-be7c-0b41a8f24327.webp" alt="Platinum" class="rank-img">
+                        <h3 class="rank-name-platinum">Platinum</h3>
+                        <p class="price-val">฿300</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <div class="rank-card card-emerald">
+                        <img src="em.png" alt="Emerald" class="rank-img">
+                        <h3 class="rank-name-emerald">Emerald</h3>
+                        <p class="price-val">฿350</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <!-- 💎 ปรับราคา Diamond เป็น 600 -->
+                    <div class="rank-card card-diamond">
+                        <img src="dm.png" alt="Diamond" class="rank-img">
+                        <h3 class="rank-name-diamond">Diamond</h3>
+                        <p class="price-val">฿600</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <!-- 👑 ปรับราคา Master เป็น 800 -->
+                    <div class="rank-card card-master">
+                        <img src="f32f7fbd-824c-4bab-b11f-a367cdf1c24b.webp" alt="Master" class="rank-img">
+                        <h3 class="rank-name-master">Master</h3>
+                        <p class="price-val">฿800</p><span class="price-unit" data-key="perLP">/ 100 LP</span>
+                    </div>
+                    <div class="rank-card card-grandmaster">
+                        <img src="322a84c3-f702-4531-b76d-4bd2dffb73fd.webp" alt="Grandmaster" class="rank-img">
+                        <h3 class="rank-name-grandmaster">Grandmaster</h3>
+                        <p class="price-val">฿1,000</p><span class="price-unit" data-key="perLP">/ 100 LP</span>
+                    </div>
+                    <!-- 🏆 อัปเดตรูปตราสัญลักษณ์ใหม่ชอง Challenger -->
+                    <div class="rank-card card-challenger">
+                        <img src="i-hit-challenger-v0-e4gcoovo9i3f1.png" alt="Challenger" class="rank-img">
+                        <h3 class="rank-name-challenger">Challenger</h3>
+                        <p class="price-val text-gold">DM</p><span class="price-unit" data-key="checkChat">ทักแชทเพื่อเช็คราคา</span>
+                    </div>
+                </div>
+                <p class="price-note" data-key="priceNote">* ราคาคิดต่อดิวิชั่น สำหรับ Master/Grandmaster คิดต่อ 100 LP — Challenger ทักแชทเช็คราคา</p>
+
+                <!-- เครื่องคำนวณราคา LoL PC -->
+                <div class="calculator-box-area">
+                    <h3 class="calc-box-title" data-key="calcTitleLoL">ระบบคำนวณราคา LoL PC</h3>
+                    <div class="calc-card">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="lolCurrentRank" data-key="labelCurrent">แรงค์ปัจจุบันของคุณ:</label>
+                                <select id="lolCurrentRank">
+                                    <option value="iron">Iron</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="platinum">Platinum</option>
+                                    <option value="emerald">Emerald</option>
+                                    <option value="diamond">Diamond</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="lolCurrentDiv" data-key="labelDiv">ดิวิชั่น:</label>
+                                <select id="lolCurrentDiv">
+                                    <option value="4">IV</option>
+                                    <option value="3">III</option>
+                                    <option value="2">II</option>
+                                    <option value="1">I</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="lolDesiredRank" data-key="labelDesired">แรงค์ที่ต้องการ:</label>
+                                <select id="lolDesiredRank">
+                                    <option value="iron">Iron</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="platinum">Platinum</option>
+                                    <option value="emerald">Emerald</option>
+                                    <option value="diamond">Diamond</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="lolDesiredDiv" data-key="labelDiv">ดิวิชั่น:</label>
+                                <select id="lolDesiredDiv">
+                                    <option value="4">IV</option>
+                                    <option value="3">III</option>
+                                    <option value="2">II</option>
+                                    <option value="1">I</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button onclick="calculateLolPrice()" class="btn-calculate" data-key="btnCalcText">คำนวณราคา</button>
+                        <div class="result-box"><span id="lol-result-text">ราคาสุทธิ: 0 บาท</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 หมวดหมู่ที่ 2: TFT Content
+                 ========================================== -->
+            <div id="content-tft" class="game-tab-content">
+                <div class="rank-price-grid">
+                    <div class="rank-card card-iron">
+                        <img src="120px-Season_2022_-_Iron.png" alt="TFT Iron" class="rank-img">
+                        <h3 class="rank-name-iron">Iron</h3>
+                        <p class="price-val">฿100</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <div class="rank-card card-bronze">
+                        <img src="7ce03682-2356-4f67-9c69-5ff49ad4ee72.webp" alt="TFT Bronze" class="rank-img">
+                        <h3 class="rank-name-bronze">Bronze</h3>
+                        <p class="price-val">฿100</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <div class="rank-card card-silver">
+                        <img src="093c5360-2961-41d2-860e-8cac01f070ce.webp" alt="TFT Silver" class="rank-img">
+                        <h3 class="rank-name-silver">Silver</h3>
+                        <p class="price-val">฿150</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <div class="rank-card card-gold">
+                        <img src="Qjf7CRIIqXLn7pWAwPRmIeP8XM.webp" alt="TFT Gold" class="rank-img">
+                        <h3 class="rank-name-gold">Gold</h3>
+                        <p class="price-val">฿250</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <div class="rank-card card-platinum">
+                        <img src="0c1c4015-4935-4404-be7c-0b41a8f24327.webp" alt="TFT Platinum" class="rank-img">
+                        <h3 class="rank-name-platinum">Platinum</h3>
+                        <p class="price-val">฿300</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <div class="rank-card card-emerald">
+                        <img src="em.png" alt="TFT Emerald" class="rank-img">
+                        <h3 class="rank-name-emerald">Emerald</h3>
+                        <p class="price-val">฿350</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <!-- 💎 ราคา Diamond ฝั่ง TFT เป็น 600 อยู่แล้ว -->
+                    <div class="rank-card card-diamond">
+                        <img src="dm.png" alt="TFT Diamond" class="rank-img">
+                        <h3 class="rank-name-diamond">Diamond</h3>
+                        <p class="price-val">฿600</p><span class="price-unit" data-key="perDiv">/ ดิวิชั่น</span>
+                    </div>
+                    <!-- 👑 ปรับราคา Master ของ TFT เป็น 800 -->
+                    <div class="rank-card card-master">
+                        <img src="f32f7fbd-824c-4bab-b11f-a367cdf1c24b.webp" alt="TFT Master" class="rank-img">
+                        <h3 class="rank-name-master">Master</h3>
+                        <p class="price-val">฿800</p><span class="price-unit" data-key="perLP">/ 100 LP</span>
+                    </div>
+                    <div class="rank-card card-grandmaster">
+                        <img src="322a84c3-f702-4531-b76d-4bd2dffb73fd.webp" alt="TFT GM" class="rank-img">
+                        <h3 class="rank-name-grandmaster">Grandmaster</h3>
+                        <p class="price-val">฿1,200</p><span class="price-unit" data-key="perLP">/ 100 LP</span>
+                    </div>
+                    <!-- 🏆 อัปเดตรูปตราสัญลักษณ์ใหม่ชอง Challenger ฝั่ง TFT -->
+                    <div class="rank-card card-challenger">
+                        <img src="i-hit-challenger-v0-e4gcoovo9i3f1.png" alt="TFT Challenger" class="rank-img">
+                        <h3 class="rank-name-challenger">Challenger</h3>
+                        <p class="price-val text-gold">DM</p><span class="price-unit" data-key="checkChat">ทักแชทเพื่อเช็คราคา</span>
+                    </div>
+                </div>
+                <p class="price-note" data-key="priceNote">* ราคาคิดต่อดิวิชั่น สำหรับ Master/Grandmaster คิดต่อ 100 LP — Challenger ทักแชทเช็คราคา</p>
+
+                <!-- เครื่องคำนวณราคา TFT -->
+                <div class="calculator-box-area">
+                    <h3 class="calc-box-title" data-key="calcTitleTFT">ระบบคำนวณราคา TFT (Teamfight Tactics)</h3>
+                    <div class="calc-card">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="tftCurrentRank" data-key="labelCurrent">แรงค์ปัจจุบันของคุณ:</label>
+                                <select id="tftCurrentRank">
+                                    <option value="iron">Iron</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="platinum">Platinum</option>
+                                    <option value="emerald">Emerald</option>
+                                    <option value="diamond">Diamond</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="tftCurrentDiv" data-key="labelDiv">ดิวิชั่น:</label>
+                                <select id="tftCurrentDiv">
+                                    <option value="4">IV</option>
+                                    <option value="3">III</option>
+                                    <option value="2">II</option>
+                                    <option value="1">I</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="tftDesiredRank" data-key="labelDesired">แรงค์ที่ต้องการ:</label>
+                                <select id="tftDesiredRank">
+                                    <option value="iron">Iron</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="platinum">Platinum</option>
+                                    <option value="emerald">Emerald</option>
+                                    <option value="diamond">Diamond</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="tftDesiredDiv" data-key="labelDiv">ดิวิชั่น:</label>
+                                <select id="tftDesiredDiv">
+                                    <option value="4">IV</option>
+                                    <option value="3">III</option>
+                                    <option value="2">II</option>
+                                    <option value="1">I</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button onclick="calculateTftPrice()" class="btn-calculate" data-key="btnCalcText">คำนวณราคา</button>
+                        <div class="result-box"><span id="tft-result-text">ราคาสุทธิ: 0 บาท</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 หมวดหมู่ที่ 3: LoL Wild Rift Content
+                 ========================================== -->
+            <div id="content-lol-wr" class="game-tab-content">
+                <h3 style="color:#00ffff; text-align:center; margin-bottom:20px; font-size:20px;"><i class="fa-solid fa-star"></i> ราคาต่อดาว</h3>
+                <div class="rank-price-grid">
+                    <div class="rank-card card-iron">
+                        <img src="LOLwrIRON.png" alt="WR Iron" class="rank-img">
+                        <h3 class="rank-name-iron">Iron</h3>
+                        <p class="price-val">฿50</p><span class="price-unit">/ ดาว</span>
+                    </div>
+                    <div class="rank-card card-bronze">
+                        <img src="LOLwrBrone.png" alt="WR Bronze" class="rank-img">
+                        <h3 class="rank-name-bronze">Bronze</h3>
+                        <p class="price-val">฿50</p><span class="price-unit">/ ดาว</span>
+                    </div>
+                    <div class="rank-card card-silver">
+                        <img src="LOLwrSilver.png" alt="WR Silver" class="rank-img">
+                        <h3 class="rank-name-silver">Silver</h3>
+                        <p class="price-val">฿50</p><span class="price-unit">/ ดาว</span>
+                    </div>
+                    <div class="rank-card card-gold">
+                        <img src="LOLwrGold.png" alt="WR Gold" class="rank-img">
+                        <h3 class="rank-name-gold">Gold</h3>
+                        <p class="price-val">฿60</p><span class="price-unit">/ ดาว</span>
+                    </div>
+                    <div class="rank-card card-platinum">
+                        <img src="LOLwrPatinum.png" alt="WR Platinum" class="rank-img">
+                        <h3 class="rank-name-platinum">Platinum</h3>
+                        <p class="price-val">฿70</p><span class="price-unit">/ ดาว</span>
+                    </div>
+                    <div class="rank-card card-emerald">
+                        <img src="LOLwrEmerald.png" alt="WR Emerald" class="rank-img">
+                        <h3 class="rank-name-emerald">Emerald</h3>
+                        <p class="price-val">฿80</p><span class="price-unit">/ ดาว</span>
+                    </div>
+                    <div class="rank-card card-diamond">
+                        <img src="LOLwrDiamond.png" alt="WR Diamond" class="rank-img">
+                        <h3 class="rank-name-diamond">Diamond</h3>
+                        <p class="price-val">฿130</p><span class="price-unit">/ ดาว</span>
+                    </div>
+                    <div class="rank-card card-master">
+                        <img src="LOLwrMaster.png" alt="WR Master" class="rank-img">
+                        <h3 class="rank-name-master">Master</h3>
+                        <p class="price-val">฿160</p><span class="price-unit">/ ดาว</span>
+                    </div>
+                    <div class="rank-card card-grandmaster">
+                        <img src="LOLwrGranmaster.png" alt="WR Grandmaster" class="rank-img">
+                        <h3 class="rank-name-grandmaster">Grandmaster</h3>
+                        <p class="price-val">฿180</p><span class="price-unit">/ ดาว</span>
+                    </div>
+                    <div class="rank-card card-challenger">
+                        <img src="LOLwrChalenger.png" alt="WR Challenger" class="rank-img">
+                        <h3 class="rank-name-challenger">Challenger</h3>
+                        <p class="price-val">฿200</p><span class="price-unit">/ ดาว</span>
+                    </div>
+                </div>
+
+                <!-- 🏷️ ราคาเหมาทั้งแรงค์ของ Wild Rift -->
+                <div class="wr-packages-area" style="margin-top: 45px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
+                    <h3 style="color:#ffcc00; text-align:center; margin-bottom:25px; font-size:20px;"><i class="fa-solid fa-tags"></i> ราคาเหมาโปรโมชัน</h3>
+                    <div class="rank-price-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
+                        <div class="rank-card" style="background: rgba(20,25,35,0.7); padding: 15px;">
+                            <span style="color:#bbb; font-size:13px; display:block; margin-bottom:5px;">Iron ไป Bronze</span>
+                            <p class="price-val" style="font-size:24px; color:#fff;">฿300</p>
+                        </div>
+                        <div class="rank-card" style="background: rgba(20,25,35,0.7); padding: 15px;">
+                            <span style="color:#bbb; font-size:13px; display:block; margin-bottom:5px;">Bronze ไป Silver</span>
+                            <p class="price-val" style="font-size:24px; color:#fff;">฿480</p>
+                        </div>
+                        <div class="rank-card" style="background: rgba(20,25,35,0.7); padding: 15px;">
+                            <span style="color:#bbb; font-size:13px; display:block; margin-bottom:5px;">Silver ไป Gold</span>
+                            <p class="price-val" style="font-size:24px; color:#fff;">฿500</p>
+                        </div>
+                        <div class="rank-card" style="background: rgba(20,25,35,0.7); padding: 15px;">
+                            <span style="color:#bbb; font-size:13px; display:block; margin-bottom:5px;">Gold ไป Platinum</span>
+                            <p class="price-val" style="font-size:24px; color:#fff;">฿800</p>
+                        </div>
+                        <div class="rank-card" style="background: rgba(20,25,35,0.7); padding: 15px;">
+                            <span style="color:#bbb; font-size:13px; display:block; margin-bottom:5px;">Platinum ไป Emerald</span>
+                            <p class="price-val" style="font-size:24px; color:#fff;">฿950</p>
+                        </div>
+                        <div class="rank-card" style="background: rgba(20,25,35,0.7); padding: 15px;">
+                            <span style="color:#bbb; font-size:13px; display:block; margin-bottom:5px;">Emerald ไป Diamond</span>
+                            <p class="price-val" style="font-size:24px; color:#fff;">฿1,200</p>
+                        </div>
+                        <div class="rank-card" style="background: rgba(20,25,35,0.7); padding: 15px;">
+                            <span style="color:#bbb; font-size:13px; display:block; margin-bottom:5px;">Diamond ไป Master</span>
+                            <p class="price-val" style="font-size:24px; color:#fff;">฿2,800</p>
+                        </div>
+                        <div class="rank-card" style="background: rgba(20,25,35,0.7); padding: 15px;">
+                            <span style="color:#bbb; font-size:13px; display:block; margin-bottom:5px;">Master ไป Grandmaster</span>
+                            <p class="price-val" style="font-size:24px; color:#fff;">฿2,800</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ⚠️ หมายเหตุข้อตกลงและเงื่อนไขความปลอดภัย -->
+                <div class="calculator-box-area" style="margin-top: 35px;">
+                    <div class="calc-card" style="background: rgba(255, 77, 77, 0.04); border: 1px solid rgba(255, 77, 77, 0.2); border-left: 4px solid #ff4d4d; border-radius: 6px; padding: 20px; text-align: left;">
+                        <h4 style="color: #ff4d4d; margin-bottom: 12px; font-size:16px; font-weight:500;"><i class="fa-solid fa-triangle-exclamation"></i> หมายเหตุสำคัญสำหรับการสั่งซื้อ</h4>
+                        <ul style="color: #bbb; padding-left: 20px; font-size: 14px; line-height: 1.6; margin: 0;">
+                            <li style="margin-bottom: 8px;">ห้ามลูกค้าเข้าบัญชี ID ไปลงเล่นโหมดจัดอันดับ (Ranked) ในระหว่างระยะเวลาการจ้างงาน หากพบว่ามีการทำผิดกฎระบบจะถือว่าสิ้นสุดการส่งมอบงานทันที</li>
+                            <li>ข้อมูลและบัญชีทุกอย่างของลูกค้าจะถูกเก็บเป็นความลับสูงสุด โดยทางเพจมีนโยบายเข้มงวดในการปกปิดและตัดภาพชื่อไอดีหรือสลิปการโอนเงินของลูกค้าก่อนนำไปเผยแพร่เป็นเครดิตรีวิว</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <!-- 🔴 สิ้นสุดโซนพื้นหลัง Viego -->
+
+    <!-- ส่วนที่ 3: ขั้นตอนการสั่งซื้อ (Steps Section) -->
+    <section id="steps" class="steps-section">
+        <h2 class="section-title" data-key="stepsMainTitle">ขั้นตอน <span class="text-cyan">การสั่งซื้อ</span></h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num">01</div>
+                <h3 data-key="step1Title">ติดต่อแอดมิน</h3>
+                <p data-key="step1Sub">ทักแชททาง WeChat หรือ Discord เพื่อแจ้งแรงค์ปัจจุบันและเป้าหมาย</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">02</div>
+                <h3 data-key="step2Title">ยืนยันราคา</h3>
+                <p data-key="step2Sub">แอดมินคำนวณราคาตามตารางและส่งใบเสนอราคาให้คุณ</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">03</div>
+                <h3 data-key="step3Title">ชำระเงิน</h3>
+                <p data-key="step3Sub">โอนเงินผ่านช่องทางที่สะดวก พร้อมส่งข้อมูลล็อกอิน</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">04</div>
+                <h3 data-key="step4Title">รับแรงค์ใหม่</h3>
+                <p data-key="step4Sub">บูสเตอร์เริ่มงานทันที อัปเดตความคืบหน้าจนถึงเป้าหมาย</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ส่วนที่ 4: ทำไมต้องเรา (Why Us Section) -->
+    <section id="whyus" class="whyus-section">
+        <h2 class="section-title" data-key="whyMainTitle">ทำไมต้อง <span class="text-gold">Elo Boost SEA</span></h2>
+        <div class="whyus-grid">
+            <div class="why-card">
+                <i class="fa-solid fa-shield-halved why-icon"></i>
+                <h3 data-key="why1Title">ปลอดภัย 100%</h3>
+                <p data-key="why1Sub">ใช้ VPN ของเซิร์ฟเวอร์ SEA ไม่มีประวัติแบนตลอด 5 ปี</p>
+            </div>
+            <div class="why-card">
+                <i class="fa-solid fa-bolt why-icon"></i>
+                <h3 data-key="why2Title">รวดเร็ว</h3>
+                <p data-key="why2Sub">เริ่มงานภายใน 30 นาทีหลังชำระเงิน</p>
+            </div>
+            <div class="why-card">
+                <i class="fa-solid fa-crown why-icon"></i>
+                <h3 data-key="why3Title">ทีม Challenger</h3>
+                <p data-key="why3Sub">บูสเตอร์ทุกคนผ่านการคัดเลือก ระดับ Master ขึ้นไป</p>
+            </div>
+            <div class="why-card">
+                <i class="fa-solid fa-comment-dots why-icon"></i>
+                <h3 data-key="why4Title">ซัพพอร์ต 24/7</h3>
+                <p data-key="why4Sub">แอดมินพร้อมตอบทุกข้อสงสัยตลอดเวลา</p>
+            </div>
+            <div class="why-card">
+                <i class="fa-solid fa-bullseye why-icon"></i>
+                <h3 data-key="why5Title">รับประกันผล</h3>
+                <p data-key="why5Sub">ถ้างานไม่เสร็จตามเป้า คืนเงินทันที</p>
+            </div>
+            <div class="why-card">
+                <i class="fa-solid fa-lock why-icon"></i>
+                <h3 data-key="why6Title">เก็บข้อมูลเป็นความลับ</h3>
+                <p data-key="why6Sub">บัญชีของคุณจะไม่ถูกแชร์ให้บุคคลที่สาม</p>
+            </div>
+        </div>
+    </section>
+
+<!-- 🟢 ส่วนเครดิตผลงาน ปรับปรุงใหม่ (เน้นโชว์รูปภาพขนาดใหญ่ ไม่มีตัวหนังสือบัง) -->
+<section id="credits" class="credits-section">
+    <h2 class="section-title" data-key="creditsMainTitle">เครดิตและ <span class="text-cyan">ผลงานล่าสุด</span></h2>
+    <p class="credits-subtitle" data-key="creditsSub">ภาพส่วนหนึ่งจากการปิดงานจริง การันตีปลอดภัย ไร้โปร ไร้แบน 100%</p>
+    
+    <div class="credits-grid">
+        <!-- ใบรีวิวที่ 1 -->
+        <div class="credit-card">
+            <img src="creditLOLWR.png" alt="Review 1" class="credit-img-full">
+        </div>
+
+        <!-- ใบรีวิวที่ 2 -->
+        <div class="credit-card">
+            <img src="creditLOLPC.png" alt="Review 2" class="credit-img-full">
+        </div>
+</section>
+
+  <section id="contact" class="contact-section">
+    <h2 class="section-title" data-key="contactMainTitle">พร้อมจะ <span class="text-cyan">ดันแรงค์</span> หรือยัง?</h2>
+    <p class="contact-subtitle" data-key="contactSub">ติดต่อเราผ่านช่องทางด้านล่างได้ตลอด 24 ชั่วโมง</p>
+    
+    <div class="social-card wechat-card" onclick="toggleQRModal(true)" style="cursor: pointer;">
+    <div class="social-left">
+        <div class="social-icon-bg bg-green">
+            <i class="fa-brands fa-weixin"></i>
+        </div>
+        <div class="social-info">
+            <h3>WeChat</h3>
+            <p data-key="wechatLinkText">คลิกเพื่อสแกน QR Code</p>
+        </div>
+    </div>
+    <i class="fa-solid fa-qrcode arrow-icon"></i>
+</div>
+
+<div id="qrModal" class="qr-modal" onclick="toggleQRModal(false)">
+    <div class="qr-modal-content" onclick="event.stopPropagation()">
+        <span class="qr-close" onclick="toggleQRModal(false)">&times;</span>
+        <h3 data-key="qrModalTitle" style="color: #fff; margin-bottom: 15px; font-size: 1.2rem;">Scan QR Code</h3>
+        <img src="QRcodeWeChat.png" alt="QR Code" class="qr-image-display">
+        <p data-key="qrModalSub" style="color: #888; margin-top: 10px; font-size: 0.9rem;">เปิดแอปสแกนเพื่อติดต่อเราได้ทันที</p>
+    </div>
+</div>
+
+        <a href="https://discord.gg/2bKuASH2uF" target="_blank" class="social-card discord-card">
+            <div class="social-left">
+                <div class="social-icon-bg bg-purple">
+                    <i class="fa-brands fa-discord"></i>
+                </div>
+                <div class="social-info">
+                    <h3>Discord</h3>
+                    <p data-key="discordLinkText">ELO BOOST SEA</p>
+                </div>
+            </div>
+            <i class="fa-solid fa-arrow-right arrow-icon"></i>
+        </a>
+
+        <a href="https://www.facebook.com/EloBoostSEALOL" target="_blank" class="social-card facebook-card">
+            <div class="social-left">
+                <div class="social-icon-bg bg-blue">
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div class="social-info">
+                    <h3>Facebook</h3>
+                    <p data-key="facebookLinkText">https://www.facebook.com/EloBoostSEALOL</p>
+                </div>
+            </div>
+            <i class="fa-solid fa-arrow-right arrow-icon"></i>
+        </a>
+    </div>
+
+<a href="https://fastwork.co/user/oujoluana/gaming-74368342" target="_blank" class="social-card fastwork-card">
+    <div class="social-left">
+        <div class="social-icon-bg bg-fastwork-blue">
+            <img src="FastWork.png" alt="Fastwork" class="fw-custom-img">
+        </div>
+        <div class="social-info">
+            <h3>Fastwork</h3>
+            <p data-key="fastworkLinkText">จ้างงานผ่าน Fastwork ปลอดภัย 100%</p>
+        </div>
+    </div>
+    <i class="fa-solid fa-arrow-right arrow-icon"></i>
+</a>
+
+    <p class="copyright">© 2026 ELO BOOST SEA. All rights reserved.</p>
+</section>
+    <script src="script.js"></script>
+</body>
+</html>
