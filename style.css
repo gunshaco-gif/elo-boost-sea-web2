@@ -681,3 +681,43 @@ body {
     height: 65%;
     object-fit: contain; /* บังคับสัดส่วนรูปภาพให้สมส่วน ไม่บี้หรือยืด */
 }
+
+/* จัดการกล่องหุ้มปุ่มให้ขยายเต็มความกว้างและดึงทุกอย่างมาไว้ตรงกลาง */
+.calculator-order-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px; /* เว้นระยะห่างจากกล่องราคาสุทธิ */
+    clear: both;      /* ป้องกันการลอย (Float) ไปทับส่วนอื่น */
+}
+
+/* ปรับแต่งปุ่มให้สวยงามตามแบบฉบับปุ่มด้านบนขวาในรูปภาพ */
+.btn-order-boost-glow {
+    display: inline-block;
+    width: 100%;
+    max-width: 400px; /* กำหนดความยาวปุ่มให้สวยงามใกล้เคียงกับปุ่มคำนวณราคา */
+    background: linear-gradient(to right, #00f2fe, #0099ff); /* ไล่เฉดสี Cyan ไปฟ้าสว่าง */
+    color: #0f172a !important; /* บังคับให้ตัวอักษรเป็นสีน้ำเงินเข้ม/ดำ เพื่อให้อ่านง่ายตัดกับสีพื้นหลัง */
+    text-align: center;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none !important; /* เอาเส้นใต้ลิงก์ออก */
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3); /* ใส่เอฟเฟกต์เรืองแสงนวลๆ ด้านล่างปุ่ม */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* เอฟเฟกต์เวลาที่เมาส์มาชี้ (Hover) */
+.btn-order-boost-glow:hover {
+    transform: translateY(-2px); /* ปุ่มลอยขึ้นเล็กน้อย */
+    box-shadow: 0 6px 25px rgba(0, 242, 254, 0.6); /* เรืองแสงเข้มขึ้นสะใจสไตล์เกมมิ่ง */
+    filter: brightness(1.1); /* เพิ่มความสว่างวาบให้ปุ่ม */
+}
+
+/* เอฟเฟกต์ตอนกดปุ่ม (Active) */
+.btn-order-boost-glow:active {
+    transform: translateY(1px);
+}
